@@ -2,10 +2,10 @@ export default {
     development: {
       client: 'mysql2',/*you can use 'mysql2' to mysql or 'pg' to postgres */
       connection: {
-          host: 'localhost',
-          user: 'root',
-          password: '1234',
-          database: 'dollar_exchange'
+          host: process.env.MYSQL_HOST|| 'localhost',
+          user: process.env.MYSQL_USER ||'root',
+          password: process.env.MYSQL_PASSWORD || '1234',
+          database: process.env.MYSQL_DATABASE || 'dollar_exchange'
       },
       migrations: {
         tableName: 'knex_migrations',

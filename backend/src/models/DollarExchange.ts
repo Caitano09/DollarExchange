@@ -8,7 +8,7 @@ export default class DollarExchange extends Model{
     data!: any
 
     static jsonAttributes = ['data']
-    static tableName = 'dollarExchange'
+    static tableName = 'dollar_exchange_period'
     static idColumn = 'id'
 }
 
