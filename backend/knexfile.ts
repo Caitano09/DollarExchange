@@ -1,6 +1,6 @@
 export default {
     development: {
-      client: 'mysql2',
+      client: 'mysql2',/*you can use 'mysql2' to mysql or 'pg' to postgres */
       connection: {
           host: 'localhost',
           user: 'root',

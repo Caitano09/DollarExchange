@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "migrate": "npx knex migrate:latest",
+    "build": "tsc",
+    "start": "node dist/src/index.js",
     "dev:server": "ts-node-dev --respawn --transpile-only src/index.ts"
   },
   "dependencies": {
