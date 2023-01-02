@@ -1,3 +1,7 @@
+## Link Online
+frontend: https://dollar-exchange-frontend.vercel.app/
+backend: https://dollar-exchange-backend.herokuapp.com/
+
 ## Getting started with Frontend
 
 1. You have to install all project dependencies. Use <code>npm install</code> or <code>yarn</code>
