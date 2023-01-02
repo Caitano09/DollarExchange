@@ -1,6 +1,6 @@
 ## Link Online
-frontend: https://dollar-exchange-frontend.vercel.app/
-backend: https://dollar-exchange-backend.herokuapp.com/
+1. frontend: https://dollar-exchange-frontend.vercel.app/
+2. backend: https://dollar-exchange-backend.herokuapp.com/
 
 ## Getting started with Frontend
 
