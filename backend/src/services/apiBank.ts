@@ -5,10 +5,18 @@ const api = axios.create({
 })
 
 const apiRoute = { 
-    periodDollarExchange: (initialDate: string, finalDate: string) => {
-        return api.get(
-            `/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial='${initialDate}'&@dataFinalCotacao='${finalDate}'&$top=100&$format=json`
-        )
+    periodDollarExchange: (type: string, initialDate: string, finalDate: string) => {
+        let link = `/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial='${initialDate}'&@dataFinalCotacao='${finalDate}'&$top=1`
+        
+        if(type === 'sell'){
+            return api.get(link+'&$orderby=cotacaoVenda%20desc&$format=json')
+        }
+        else if(type === 'buy'){
+            return api.get(link+'&$orderby=cotacaoCompra&$format=json')
+        }   
+        else{
+            return api.get(link+'&$format=json')
+        }
     }
 }
 

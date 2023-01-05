@@ -24,19 +24,10 @@ export const formatDate = (date: string) => {
     return temp[1] + "-" + temp[2] + "-" + temp[0]
 }
 
-export const betterDay = (values: iDollar[]) => {
-    let dayToBuy
-    let dayToSell
-
-    values.sort((a, b) => a.cotacaoCompra - b.cotacaoCompra)
-    dayToBuy = values[0]
-
-    values.sort((a, b) => a.cotacaoVenda - b.cotacaoVenda)
-    dayToSell = values[values.length - 1]
-
+export const betterDay = (dayToBuy: iDollar[], dayToSell: iDollar[]) => {
     const res = {
-        compra: { dia: dayToBuy.dataHoraCotacao, valor: dayToBuy.cotacaoCompra },
-        venda: { dia: dayToSell.dataHoraCotacao, valor: dayToSell.cotacaoVenda }
+        compra: { dia: dayToBuy[0].dataHoraCotacao, valor: dayToBuy[0].cotacaoCompra },
+        venda: { dia: dayToSell[0].dataHoraCotacao, valor: dayToSell[0].cotacaoVenda }
     }
 
     return res

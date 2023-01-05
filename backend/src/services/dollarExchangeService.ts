@@ -9,10 +9,11 @@ export const findPeriodDollarExchange = async(initialDate: string, finalDate: st
     if(cache){
         return cache.data
     }else{
-        const resData = await apiRoute.periodDollarExchange(initialDate, finalDate)
-        if(resData.data.value.length <= 0) throw new ErrorWithResponse('Sem cotação para esse intervalo')
+        const buyDollar = await apiRoute.periodDollarExchange('buy', initialDate, finalDate)
+        const sellDollar = await apiRoute.periodDollarExchange('sell', initialDate, finalDate)
+        if(buyDollar.data.value.length <= 0 || sellDollar.data.value.length <= 0) throw new ErrorWithResponse('Sem cotação para esse intervalo')
 
-        const data = betterDay(resData.data.value)
+        const data = betterDay(buyDollar.data.value, sellDollar.data.value)
         await DollarExchange.query().insert({ initialDate, finalDate, data})
         return data
     }
